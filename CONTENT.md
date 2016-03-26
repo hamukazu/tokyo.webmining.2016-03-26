@@ -2,6 +2,8 @@ class:center,middle
 
 ## Introduction to Algorithms for Behavior Based Recommendation
 
+### Tokyo Web Mining Meetup
+### March 26, 2016
 Kimikazu Kato
 
 Silver Egg Technology Co., Ltd.
@@ -12,10 +14,16 @@ Silver Egg Technology Co., Ltd.
 加藤公一
 Kimikazu Kato
 
+Twitter: [@hamukazu](http://www.twitter.com/hamukazu)
+
+LinkedIn: [http://linkedin.com/in/kimikazukato](http://linkedin.com/in/kimikazukato)
+
+* Chief Scientist at Silver Egg Technology
 * Ph.D in computer science, Master's degree in mathematics
-* Experience in numerical computation, especially ...
+* Experience in numerical computation and mathematical algorithms especially ...
     - Geometric computation, computer graphics
     - Partial differential equation, parallel computation, GPGPU
+    - Mathematical programming
 * Now specialize in
     - Machine learning, especially, recommendation system
 
@@ -30,7 +38,7 @@ Kimikazu Kato
 
 > Main Service: Recommendation System, Online Advertisement
 
-> Major Clients: [QVC](http://www.qvc.com/), 千趣会 ([ベルメゾン](http://www.bellemaison.jp/)), [Tsutaya](http://tsutaya.tsite.jp/)
+> Major Clients: [QVC](http://www.qvc.com/), Senshukai ([Bellemaison](http://www.bellemaison.jp/)), [Tsutaya](http://tsutaya.tsite.jp/)
 
 We provide a recommendation system to Japan's leading web sites.
 
@@ -41,6 +49,15 @@ We provide a recommendation system to Japan's leading web sites.
     - Evaluation metrics
 * Algorithms
 * Conclusion
+
+---
+# Caution
+
+This presentation includes:
+* State-of-the-art algorithms for recommendation systems,
+
+But does NOT include:
+* Any information about the core algorithm in Silver Egg Technology
 
 ---
 # Recommendation System
@@ -74,7 +91,7 @@ Want to predict a rating for an unknown user/movie pair.
  A | 1 | 1 | 1 | 1 
  B | 1 |   |   |   
  C |   | 1 |   |   
- D | 1 |   | 1 | <font color="#FF0000">?</font>
+ D | 1 |<font color="#FF0000">?</font>  | 1 | <font color="#FF0000">?</font>
  
 Given "who bought what" information (user/item pairs),
 
@@ -225,7 +242,7 @@ Thus,
 `$$
 \begin{align}
 &\log p \left(U,V|A,\sigma, \sigma_U, \sigma_V \right)\\
-&=\sum_{A_{ui}} \left( A_{ui} - X_u^T Y_i \right) + 
+&=\sum_{A_{ui}} \left( A_{ui} - X_u^T Y_i \right)^2 + 
 \lambda_X \Vert X \Vert_\mathrm{Fro}^2 + \lambda_Y \Vert Y \Vert_\mathrm{Fro}^2 + \mathrm{const.}
 \end{align}
 $$`
@@ -261,7 +278,7 @@ Shopping (Browsing)
  A | 1 | 1 | 1 | 1 
  B | 1 |   |   |   
  C |   | 1 |   |   
- D | 1 |   | 1 | <font color="#FF0000">?</font>
+ D | 1 |<font color="#FF0000">?</font>  | 1 | <font color="#FF0000">?</font>
 
 * Includes no negative feedback
 * Zero means "unknown" or "negative"
@@ -421,6 +438,16 @@ The algorithm is the following:
 This method  is called Stochastic Gradient Descent (SGD).
 
 ---
+# MyMediaLite 
+
+[http://www.mymedialite.net/](http://www.mymedialite.net/)
+
+* Open source implemetation of recommendation systems
+* Written in C\#
+* Reasonable computation time
+* Supports rating and item prediction
+
+---
 # Practical Aspect of Recommendation Problem
 * Computational time
 * Memory consumption
@@ -441,7 +468,18 @@ This method  is called Stochastic Gradient Descent (SGD).
     - Domain specific knowledge
 
 ---
-# References
+# References (1/2)
+
+### For beginers
+* [比戸ら, データサイエンティスト養成読本 機械学習入門編, 技術評論社, 2016](http://bit.ly/yoseiml)
+* [T.Segaran. Programming Collective Intelligence, O'Reilly Media, 2007.](http://shop.oreilly.com/product/9780596529321.do)
+* [E.Chen. Winning the Netflix Prize: A Summary.](http://blog.echen.me/2011/10/24/winning-the-netflix-prize-a-summary/)
+* A.Gunawardana and G.Shani. A Survey of Accuracy Evaluation Metrics of Recommendation Tasks, The Journal of Machine Learning Research, Volume 10, 2009.
+
+---
+# References (2/2)
+
+### Papers
 * Salakhutdinov, Ruslan, and Andriy Mnih. "Bayesian probabilistic matrix factorization using Markov chain Monte Carlo." Proceedings of the 25th international conference on Machine learning. ACM, 2008.
 * Sindhwani, Vikas, et al. "One-class matrix completion with low-density factorizations." Data Mining (ICDM), 2010 IEEE 10th International Conference on. IEEE, 2010.
 * Rendle, Steffen, et al. "BPR: Bayesian personalized ranking from implicit feedback." Proceedings of the Twenty-Fifth Conference on Uncertainty in Artificial Intelligence. AUAI Press, 2009.
